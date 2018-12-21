@@ -79,22 +79,17 @@
 
 
 
-<meta name="description" content="通常在网页中我们会用的一些简单js 效果 1.返回顶部   $(function(){         $(&amp;#39;.top&amp;#39;).hide();         $(window).scroll(function() {                     if($(window).scrollTop() &amp;gt;= 100){                 $(&amp;#39;.top">
+<meta name="description" content="关于禁止js文件缓存问题对于js 文件被缓存的问题,会导致修改文件上传后,用户的浏览器使用的还是本地缓存的js 代码,导致用户体验到的不一致, 需要强制刷新之后, 重新取服务器获取最新的js代码, 但是不能让用户每次都取这样操作. 一般的解决方案:  加版本号        添加版本号的方案:这个方案是属于业界比较成熟的方案 但是有个缺点,这个版本号怎么做版本, 不可能修改一次就更新一次版本号,">
 <meta property="og:type" content="article">
-<meta property="og:title" content="js的一些常见特效">
-<meta property="og:url" content="http://yoursite.com/2018/12/13/js的一些常见特效/index.html">
+<meta property="og:title" content="关于js 脚本缓存的问题">
+<meta property="og:url" content="http://yoursite.com/2018/12/21/关于js 脚本缓存的问题/index.html">
 <meta property="og:site_name" content="ztong的博客">
-<meta property="og:description" content="通常在网页中我们会用的一些简单js 效果 1.返回顶部   $(function(){         $(&amp;#39;.top&amp;#39;).hide();         $(window).scroll(function() {                     if($(window).scrollTop() &amp;gt;= 100){                 $(&amp;#39;.top">
+<meta property="og:description" content="关于禁止js文件缓存问题对于js 文件被缓存的问题,会导致修改文件上传后,用户的浏览器使用的还是本地缓存的js 代码,导致用户体验到的不一致, 需要强制刷新之后, 重新取服务器获取最新的js代码, 但是不能让用户每次都取这样操作. 一般的解决方案:  加版本号        添加版本号的方案:这个方案是属于业界比较成熟的方案 但是有个缺点,这个版本号怎么做版本, 不可能修改一次就更新一次版本号,">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/2018/12/13/js的一些常见特效/图片的路径">
-<meta property="og:image" content="http://yoursite.com/2018/12/13/js的一些常见特效/图片的路径">
-<meta property="og:image" content="http://yoursite.com/2018/12/13/js的一些常见特效/图片的路径">
-<meta property="og:image" content="http://yoursite.com/2018/12/13/js的一些常见特效/图片的路径">
-<meta property="og:updated_time" content="2018-12-13T06:56:07.263Z">
+<meta property="og:updated_time" content="2018-12-21T08:23:28.429Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="js的一些常见特效">
-<meta name="twitter:description" content="通常在网页中我们会用的一些简单js 效果 1.返回顶部   $(function(){         $(&amp;#39;.top&amp;#39;).hide();         $(window).scroll(function() {                     if($(window).scrollTop() &amp;gt;= 100){                 $(&amp;#39;.top">
-<meta name="twitter:image" content="http://yoursite.com/2018/12/13/js的一些常见特效/图片的路径">
+<meta name="twitter:title" content="关于js 脚本缓存的问题">
+<meta name="twitter:description" content="关于禁止js文件缓存问题对于js 文件被缓存的问题,会导致修改文件上传后,用户的浏览器使用的还是本地缓存的js 代码,导致用户体验到的不一致, 需要强制刷新之后, 重新取服务器获取最新的js代码, 但是不能让用户每次都取这样操作. 一般的解决方案:  加版本号        添加版本号的方案:这个方案是属于业界比较成熟的方案 但是有个缺点,这个版本号怎么做版本, 不可能修改一次就更新一次版本号,">
 
 
 
@@ -124,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/12/13/js的一些常见特效/">
+  <link rel="canonical" href="http://yoursite.com/2018/12/21/关于js 脚本缓存的问题/">
 
 
 
 
 
-  <title>js的一些常见特效 | ztong的博客</title>
+  <title>关于js 脚本缓存的问题 | ztong的博客</title>
   
 
 
@@ -237,7 +232,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/13/js的一些常见特效/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/21/关于js 脚本缓存的问题/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ztong">
@@ -254,7 +249,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">js的一些常见特效</h1>
+          <h1 class="post-title" itemprop="name headline">关于js 脚本缓存的问题</h1>
         
 
         <div class="post-meta">
@@ -266,8 +261,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-13T14:50:03+08:00">
-                2018-12-13
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-21T09:54:42+08:00">
+                2018-12-21
               </time>
             
 
@@ -304,66 +299,47 @@
       
 
       
-        <pre><code>通常在网页中我们会用的一些简单js 效果
-</code></pre><h4 id="1-返回顶部"><a href="#1-返回顶部" class="headerlink" title="1.返回顶部"></a>1.返回顶部</h4><p>   <code>$(function(){
-        $(&#39;.top&#39;).hide();
-        $(window).scroll(function() {       
-             if($(window).scrollTop() &gt;= 100){
-                $(&#39;.top&#39;).fadeIn(300); 
-                 }else{  $(&#39;.top&#39;).fadeOut(300);  }  
-         });
-        $(&#39;.top&#39;).click(function(){$(&#39;html,body&#39;).animate({scrollTop: &#39;0px&#39;}, 800);});
-     });</code></p>
-<h4 id="2-点击锚点移动到对应的位置"><a href="#2-点击锚点移动到对应的位置" class="headerlink" title="2.点击锚点移动到对应的位置"></a>2.点击锚点移动到对应的位置</h4><pre><code>`$(&quot;.aa&quot;).click(function(event){
-    event.preventDefault(); //取消事件的默认动作。
-    $(&apos;html,body&apos;).animate({scrollTop:$(this.hash).offset().top},800);
-});`
-</code></pre><h4 id="3-判断页面加载是否完成"><a href="#3-判断页面加载是否完成" class="headerlink" title="3.判断页面加载是否完成"></a>3.判断页面加载是否完成</h4><p>   d<code>ocument.onreadystatechange = loadingChange;//当页面加载状态改变的时候执行这个方法.  
-        function loadingChange() {   
-            if(document.readyState == &quot;complete&quot;){ //当页面加载状态为完全结束时进入   
-                $(&quot;.loading&quot;).hide();//当页面加载完成后将loading页隐藏  
-                window.location.href=&quot;http://www.baidu.com&quot;;
-            }   
-        }</code></p>
-<h4 id="4-禁止鼠标右键"><a href="#4-禁止鼠标右键" class="headerlink" title="4.禁止鼠标右键"></a>4.禁止鼠标右键</h4><p>   $<code>(document).ready(function(){
-        $(document).on(&quot;contextmenu&quot;,function(e){
-             return false;
-         });
-    });</code></p>
-<h4 id="5-判断是pc端还是移动端"><a href="#5-判断是pc端还是移动端" class="headerlink" title="5.判断是pc端还是移动端"></a>5.判断是pc端还是移动端</h4><pre><code>`function getClientInfo(){  
-     var banner=document.getElementById(&apos;banner&apos;);
-     var userAgentInfo = navigator.userAgent;  
-     var Agents = new Array(&quot;Android&quot;, &quot;iPhone&quot;, &quot;SymbianOS&quot;, &quot;Windows Phone&quot;, &quot;iPad&quot;, &quot;iPod&quot;);  
-     var agentinfo = null;  
-     for (var i = 0; i &lt; Agents.length; i++) {  
-               if (userAgentInfo.indexOf(Agents[i]) &gt; 0) { agentinfo = userAgentInfo; break; }  
-     }  
-     if(agentinfo){
-               $(&apos;.banner&apos;).css(&apos;height&apos;,&apos;auto&apos;);
-                banner.style.height=&apos;auto&apos;
-               }else{
-                    $(&apos;.banner&apos;).css($(window).height());
-                    banner.style.height=document.body.clientHeight
-               }     
-    }`
-</code></pre><h4 id="6-判断是否是ie浏览器"><a href="#6-判断是否是ie浏览器" class="headerlink" title="6.判断是否是ie浏览器"></a>6.判断是否是ie浏览器</h4><p>   <code>function isIE() { //ie?    
-       if (!!window.ActiveXObject || &quot;ActiveXObject&quot; in window){
-              return true;
-         }else{}         
-          return false;  
-     }</code></p>
-<h4 id="7、返回上一页"><a href="#7、返回上一页" class="headerlink" title="7、返回上一页"></a>7、返回上一页</h4><ul>
-<li>方法一、以按钮点击的方式实现：<br>  <input type="button" name="Submit" value="返回上一页" onclick="javascript:window.history.back(-1);"><br>  或者  <input type="button" name="Submit" value="返回上一页" onclick="javascript:history.back(-1);"></li>
-<li>方法二、以图片点击的方式实现：<br>  <img src="图片的路径" onclick="javascript:window.history.back(-1);" title="返回上一页" alt="返回点击图片"><br>  或者<br>  <img src="图片的路径" onclick="javascript:history.back(-1);" title="返回上一页" alt="返回点击图片"></li>
-<li><p>方法三、文字点击的方式实现：<br>  <a href="javascript:history.back(-1)" target="_blank" rel="noopener">返回上一页</a><br>  或者<br>  <a href="#" onclick="javascript:history.back(-1);">返回上一页</a></p>
-</li>
-<li><p>方法四、图片链接的方式实现：<br>  <a href="javascript:window.history.back(-1)" target="_self"><img src="图片的路径"></a><br>  或者<br>  <a href="javascript:history.back(-1)" target="_self"><img src="图片的路径"></a></p>
-</li>
-<li>方法五、过几秒钟后返回上一页代码：  <script language="javascript">setTimeout("window.history.go(-1)",3000)</script> 
-  或者
-  <script language="javascript">setTimeout("history.go(-1)",3000)</script></li>
-</ul>
+        <h3 id="关于禁止js文件缓存问题"><a href="#关于禁止js文件缓存问题" class="headerlink" title="关于禁止js文件缓存问题"></a>关于禁止js文件缓存问题</h3><pre><code>对于js 文件被缓存的问题,会导致修改文件上传后,用户的浏览器使用的还是本地缓存的js 代码,导致用户体验到的不一致, 需要强制刷新之后, 重新取服务器获取最新的js代码, 但是不能让用户每次都取这样操作.
+</code></pre><p>一般的解决方案:</p>
+<ul>
+<li>加版本号   <script type="text/javascript" src="/js/demo.js?v=1.0.0"></script>
 
+
+</li>
+</ul>
+<pre><code>添加版本号的方案:这个方案是属于业界比较成熟的方案 但是有个缺点,这个版本号怎么做版本, 不可能修改一次就更新一次版本号, 故而版本号管理是个问题 
+</code></pre><ul>
+<li>加发布时间    <script type="text/javascript" src="/js/demo.js?t=20180428"></script>
+
+
+</li>
+</ul>
+<pre><code>这个方案是可行的  不需要系统的时间,而且不需要每个js文件都添加参数  每次修改后 去手动修改参数  但钱的时间
+</code></pre><ul>
+<li>开发过程中添加时间戳或者添加随机数<br>  &lt;script type=”text/javascript” src=”/js/demo.js?t=’date(“Y-m-d”)’” &gt; 使用日期，重新请求服务器。<br>  <script type="text/javascript" src="/js/demo.js?t='time()'"></script> 使用时间戳</li>
+</ul>
+<pre><code>添加时间戳的方案  可以解决缓存问题, 不过缺点也是很明显, 因为引入时间戳后会导致浏览器每次都会去服务端请求js文件资源,  这样会很消耗资源
+</code></pre><p>添加的方法:</p>
+<ul>
+<li><p>直接写入页面<br>  <code>document.write( &quot; &lt;script src=&#39;demo.js?rnd= &quot; + Math.random() + &quot; &#39;&gt;&lt;/s &quot; + &quot; cript&gt; &quot; )</code></p>
+</li>
+<li><p>动态追加脚本标签 然后填入地址</p>
+<p>  <code>var  js = document.createElement( &quot; script &quot; )</code>+<br>  <code>js.src = &quot; test.js &quot; + Math.random()</code>+<br>  <code>document.body.appendChild(js)</code></p>
+</li>
+<li><p>手动修改后面的参数<br>  <code>&lt;script src=&#39;demo.js?t=20180428&#39;&gt;&lt;/script&gt;</code></p>
+</li>
+</ul>
+<pre><code>后来又找到一个方法,那就是用自动化构建工具  比如gulp, 每次修改提交后都构建一次, 修改了文件名,  这样每次构建提交之后 都会实时的更新被缓存的文件
+
+`   
+    runSequence = require(&apos;run-sequence&apos;),  
+    rev = require(&apos;gulp-rev&apos;),   // 清楚缓存
+    revCollector = require(&apos;gulp-rev-collector&apos;);   // 替换指定文件
+`
+
+
+总结: 目前能想到的就是这样写方法  ,如果有更好的方法 再回来补充
+</code></pre>
       
     </div>
     
@@ -387,8 +363,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/12/04/CSS 的一些小技巧/" rel="next" title="CSS 的一些小技巧">
-                <i class="fa fa-chevron-left"></i> CSS 的一些小技巧
+              <a href="/2018/12/13/js的一些常见特效/" rel="next" title="js的一些常见特效">
+                <i class="fa fa-chevron-left"></i> js的一些常见特效
               </a>
             
           </div>
@@ -396,10 +372,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/12/21/关于js 脚本缓存的问题/" rel="prev" title="关于js 脚本缓存的问题">
-                关于js 脚本缓存的问题 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -513,7 +485,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-返回顶部"><span class="nav-number">1.</span> <span class="nav-text">1.返回顶部</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-点击锚点移动到对应的位置"><span class="nav-number">2.</span> <span class="nav-text">2.点击锚点移动到对应的位置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-判断页面加载是否完成"><span class="nav-number">3.</span> <span class="nav-text">3.判断页面加载是否完成</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-禁止鼠标右键"><span class="nav-number">4.</span> <span class="nav-text">4.禁止鼠标右键</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-判断是pc端还是移动端"><span class="nav-number">5.</span> <span class="nav-text">5.判断是pc端还是移动端</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-判断是否是ie浏览器"><span class="nav-number">6.</span> <span class="nav-text">6.判断是否是ie浏览器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7、返回上一页"><span class="nav-number">7.</span> <span class="nav-text">7、返回上一页</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#关于禁止js文件缓存问题"><span class="nav-number">1.</span> <span class="nav-text">关于禁止js文件缓存问题</span></a></li></ol></div>
             
 
           </div>
