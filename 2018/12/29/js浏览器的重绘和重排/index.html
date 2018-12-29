@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="ztong的博客">
 <meta property="og:description" content="首先我们需要了解一下关于浏览器的页面渲染的流程 解析HTML以构建dom 树-&amp;gt; 构建render 树 -&amp;gt; 布局render 树-&amp;gt; 绘制render 树  解析HTML 代码并产生一个DOM 树 解析CSS 文件  生成一个CSS  树 产生 渲染树  css 树 和DOM 树  对应渲染 和成一个渲染树 （包括所有的节点） 根据渲染树 在浏览器上的屏幕上渲染出所有的节点">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-29T09:38:20.591Z">
+<meta property="og:updated_time" content="2018-12-29T09:49:23.326Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浏览器的重绘与 重排">
 <meta name="twitter:description" content="首先我们需要了解一下关于浏览器的页面渲染的流程 解析HTML以构建dom 树-&amp;gt; 构建render 树 -&amp;gt; 布局render 树-&amp;gt; 绘制render 树  解析HTML 代码并产生一个DOM 树 解析CSS 文件  生成一个CSS  树 产生 渲染树  css 树 和DOM 树  对应渲染 和成一个渲染树 （包括所有的节点） 根据渲染树 在浏览器上的屏幕上渲染出所有的节点">
@@ -307,8 +307,8 @@
 <li>产生 渲染树  css 树 和DOM 树  对应渲染 和成一个渲染树 （包括所有的节点）</li>
 <li>根据渲染树 在浏览器上的屏幕上渲染出所有的节点</li>
 </ul>
-<h3 id="重绘-repaint"><a href="#重绘-repaint" class="headerlink" title="重绘 repaint"></a>重绘 repaint</h3><p>重绘是一个节点的外观发生改变的行文  比如 color outline 等属性，浏览器会根据节点的新属性重新绘制，使节点呈现新的外观，重绘不会带来新的布局  并不一定伴随重排</p>
-<h3 id="重排-也叫回流-（reflow）"><a href="#重排-也叫回流-（reflow）" class="headerlink" title="重排 也叫回流  （reflow）"></a>重排 也叫回流  （reflow）</h3><p>当DOM 变化影响了节点的几何属性，浏览器需要重新计算节点的几何属性，并页面中的其他节点会收到影响，这样渲染树就发生了改变并重新构建新的渲染书  </p>
+<h3 id="重绘-repaint"><a href="#重绘-repaint" class="headerlink" title="重绘 repaint"></a>重绘 repaint</h3><pre><code>重绘是一个节点的外观发生改变的行文  比如 color outline 等属性，浏览器会根据节点的新属性重新绘制，使节点呈现新的外观，重绘不会带来新的布局  并不一定伴随重排
+</code></pre><h3 id="重排-也叫回流-（reflow）"><a href="#重排-也叫回流-（reflow）" class="headerlink" title="重排 也叫回流  （reflow）"></a>重排 也叫回流  （reflow）</h3><p>当DOM 变化影响了节点的几何属性，浏览器需要重新计算节点的几何属性，并页面中的其他节点会收到影响，这样渲染树就发生了改变并重新构建新的渲染书  </p>
 <p>触发重排的操作：</p>
 <ul>
 <li><p>1 DOM元素的几何属性变化</p>
@@ -375,6 +375,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/home/2018/12/29/CSS Grid 系列(上)-Grid布局完整指南/" rel="prev" title="CSS Grid 系列(上)-Grid布局完整指南">
+                CSS Grid 系列(上)-Grid布局完整指南 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -451,7 +455,7 @@
               
                 <a href="/home/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
