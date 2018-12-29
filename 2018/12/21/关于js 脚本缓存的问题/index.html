@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="关于禁止js文件缓存问题对于js 文件被缓存的问题,会导致修改文件上传后,用户的浏览器使用的还是本地缓存的js 代码,导致用户体验到的不一致, 需要强制刷新之后, 重新取服务器获取最新的js代码, 但是不能让用户每次都取这样操作. 一般的解决方案:  加版本号        添加版本号的方案:这个方案是属于业界比较成熟的方案 但是有个缺点,这个版本号怎么做版本, 不可能修改一次就更新一次版本号,">
+<meta name="description" content="关于禁止js文件缓存问题对于js 文件被缓存的问题,会导致修改文件上传后,用户的浏览器使用的还是本地缓存的js 代码,导致用户体验到的不一致, 需要强制刷新之后, 重新取服务器获取最新的js代码, 但是不能让用户每次都取这样操作. 一般的解决方案:  加版本号   &amp;lt;script type=&amp;quot;text/javascript&amp;quot; src=&amp;quot;/js/demo.js?v">
 <meta property="og:type" content="article">
 <meta property="og:title" content="关于js 脚本缓存的问题">
 <meta property="og:url" content="http://yoursite.com/2018/12/21/关于js 脚本缓存的问题/index.html">
 <meta property="og:site_name" content="ztong的博客">
-<meta property="og:description" content="关于禁止js文件缓存问题对于js 文件被缓存的问题,会导致修改文件上传后,用户的浏览器使用的还是本地缓存的js 代码,导致用户体验到的不一致, 需要强制刷新之后, 重新取服务器获取最新的js代码, 但是不能让用户每次都取这样操作. 一般的解决方案:  加版本号        添加版本号的方案:这个方案是属于业界比较成熟的方案 但是有个缺点,这个版本号怎么做版本, 不可能修改一次就更新一次版本号,">
+<meta property="og:description" content="关于禁止js文件缓存问题对于js 文件被缓存的问题,会导致修改文件上传后,用户的浏览器使用的还是本地缓存的js 代码,导致用户体验到的不一致, 需要强制刷新之后, 重新取服务器获取最新的js代码, 但是不能让用户每次都取这样操作. 一般的解决方案:  加版本号   &amp;lt;script type=&amp;quot;text/javascript&amp;quot; src=&amp;quot;/js/demo.js?v">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-21T08:23:28.429Z">
+<meta property="og:updated_time" content="2018-12-29T09:38:24.220Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于js 脚本缓存的问题">
-<meta name="twitter:description" content="关于禁止js文件缓存问题对于js 文件被缓存的问题,会导致修改文件上传后,用户的浏览器使用的还是本地缓存的js 代码,导致用户体验到的不一致, 需要强制刷新之后, 重新取服务器获取最新的js代码, 但是不能让用户每次都取这样操作. 一般的解决方案:  加版本号        添加版本号的方案:这个方案是属于业界比较成熟的方案 但是有个缺点,这个版本号怎么做版本, 不可能修改一次就更新一次版本号,">
+<meta name="twitter:description" content="关于禁止js文件缓存问题对于js 文件被缓存的问题,会导致修改文件上传后,用户的浏览器使用的还是本地缓存的js 代码,导致用户体验到的不一致, 需要强制刷新之后, 重新取服务器获取最新的js代码, 但是不能让用户每次都取这样操作. 一般的解决方案:  加版本号   &amp;lt;script type=&amp;quot;text/javascript&amp;quot; src=&amp;quot;/js/demo.js?v">
 
 
 
@@ -302,21 +302,17 @@
         <h3 id="关于禁止js文件缓存问题"><a href="#关于禁止js文件缓存问题" class="headerlink" title="关于禁止js文件缓存问题"></a>关于禁止js文件缓存问题</h3><pre><code>对于js 文件被缓存的问题,会导致修改文件上传后,用户的浏览器使用的还是本地缓存的js 代码,导致用户体验到的不一致, 需要强制刷新之后, 重新取服务器获取最新的js代码, 但是不能让用户每次都取这样操作.
 </code></pre><p>一般的解决方案:</p>
 <ul>
-<li>加版本号   <script type="text/javascript" src="/js/demo.js?v=1.0.0"></script>
-
-
+<li><p>加版本号 </p>
+<p> <code>&lt;script type=&quot;text/javascript&quot; src=&quot;/js/demo.js?v=1.0.0&quot; &gt;&lt;/script&gt;</code></p>
 </li>
 </ul>
 <pre><code>添加版本号的方案:这个方案是属于业界比较成熟的方案 但是有个缺点,这个版本号怎么做版本, 不可能修改一次就更新一次版本号, 故而版本号管理是个问题 
 </code></pre><ul>
-<li>加发布时间    <script type="text/javascript" src="/js/demo.js?t=20180428"></script>
-
-
-</li>
+<li>加发布时间<br>  <code>&lt;script type=&quot;text/javascript&quot; src=&quot;/js/demo.js?t=20180428&quot; &gt;&lt;/script&gt;</code></li>
 </ul>
 <pre><code>这个方案是可行的  不需要系统的时间,而且不需要每个js文件都添加参数  每次修改后 去手动修改参数  但钱的时间
 </code></pre><ul>
-<li>开发过程中添加时间戳或者添加随机数<br>  &lt;script type=”text/javascript” src=”/js/demo.js?t=’date(“Y-m-d”)’” &gt; 使用日期，重新请求服务器。<br>  <script type="text/javascript" src="/js/demo.js?t='time()'"></script> 使用时间戳</li>
+<li>开发过程中添加时间戳或者添加随机数<br> <code>&lt;script type=&quot;text/javascript&quot; src=&quot;/js/demo.js?t=&#39;date(&quot;Y-m-d&quot;)&#39;&quot; &gt;&lt;/script&gt; 使用日期，重新请求服务器。</code><br>  <code>&lt;script type=&quot;text/javascript&quot; src=&quot;/js/demo.js?t=&#39;time()&#39;&quot; &gt;&lt;/script&gt; 使用时间戳</code></li>
 </ul>
 <pre><code>添加时间戳的方案  可以解决缓存问题, 不过缺点也是很明显, 因为引入时间戳后会导致浏览器每次都会去服务端请求js文件资源,  这样会很消耗资源
 </code></pre><p>添加的方法:</p>
