@@ -40,7 +40,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+  <link href="/home/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -48,21 +48,21 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+<link href="/home/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+<link href="/home/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+  <link rel="apple-touch-icon" sizes="180x180" href="/home/images/apple-touch-icon-next.png?v=5.1.4">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+  <link rel="icon" type="image/png" sizes="32x32" href="/home/images/favicon-32x32-next.png?v=5.1.4">
 
 
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+  <link rel="icon" type="image/png" sizes="16x16" href="/home/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/home/images/logo.svg?v=5.1.4" color="#222">
 
 
 
@@ -95,7 +95,7 @@
 <script type="text/javascript" id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
-    root: '/',
+    root: '/home/',
     scheme: 'Mist',
     version: '5.1.4',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
@@ -153,7 +153,7 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
+      <a href="/home/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">ztong的博客</span>
         <span class="logo-line-after"><i></i></span>
@@ -181,7 +181,7 @@
       
         
         <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
+          <a href="/home/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
@@ -191,7 +191,7 @@
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
+          <a href="/home/archives/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
@@ -232,12 +232,12 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/21/关于js 脚本缓存的问题/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/home/2018/12/29/js浏览器的重绘和重排/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ztong">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/home/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
@@ -251,7 +251,177 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/12/21/关于js 脚本缓存的问题/" itemprop="url">关于js 脚本缓存的问题</a></h1>
+                <a class="post-title-link" href="/home/2018/12/29/js浏览器的重绘和重排/" itemprop="url">浏览器的重绘与 重排</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-29T10:41:46+08:00">
+                2018-12-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>首先我们需要了解一下关于浏览器的页面渲染的流程</p>
+<pre><code>解析HTML以构建dom 树-&gt; 构建render 树 -&gt; 布局render 树-&gt; 绘制render 树
+</code></pre><ul>
+<li>解析HTML 代码并产生一个DOM 树</li>
+<li>解析CSS 文件  生成一个CSS  树</li>
+<li>产生 渲染树  css 树 和DOM 树  对应渲染 和成一个渲染树 （包括所有的节点）</li>
+<li>根据渲染树 在浏览器上的屏幕上渲染出所有的节点</li>
+</ul>
+<h3 id="重绘-（repaint）"><a href="#重绘-（repaint）" class="headerlink" title="重绘 （repaint）"></a>重绘 （repaint）</h3><p>重绘是一个节点的外观发生改变的行文  比如 color outline 等属性，浏览器会根据节点的新属性重新绘制，使节点呈现新的外观，重绘不会带来新的布局  并不一定伴随重排</p>
+<h3 id="重排-也叫回流-（reflow）"><a href="#重排-也叫回流-（reflow）" class="headerlink" title="重排 也叫回流  （reflow）"></a>重排 也叫回流  （reflow）</h3><p>当DOM 变化影响了节点的几何属性，浏览器需要重新计算节点的几何属性，并页面中的其他节点会收到影响，这样渲染树就发生了改变并重新构建新的渲染书  </p>
+<p>触发重排的操作：</p>
+<ul>
+<li><ol>
+<li><p>DOM元素的几何属性变化</p>
+<p>当DOM的几何属性变化时, 渲染树中的相关节点就会失效, 浏览器会重新构建渲染树中失效的节点。而且, 当前元素的重排也许会带来相关元素的重排。例如, 容器节点渲染树改变时, 会触发子节点的重新计算, 也会触发后续兄弟节点的重排, 祖先节点需要重新计算大小, 最后, 每个元素可能都会进行重绘。可见, 重排一定会引起重绘, 并且因为重排的元素很多, 导致重排从性能上来说比重绘更差。一个元素的重排通常都会带来一系列反应, 甚至触发整个文档的重绘和重排, 性能代价是高昂的。</p>
+</li>
+</ol>
+</li>
+<li><ol start="2">
+<li><p>DOM树的结构变化</p>
+<p>当DOM树的结构变化时, 例如节点的增加, 减少, 删除, 也会触发重排。浏览器引擎渲染DOM树类似前序遍历, 也就是说当前元素不会影响前面已经遍历过的元素。所以, 如果在body前面插入一个元素, 就会导致整个文档的重新渲染, 而在其后插入一个元素, 就不会影响到前面元素的布局。</p>
+</li>
+</ol>
+</li>
+<li><p>3.获取某些属性</p>
+<p> 浏览器会对重排进行优化, 可能会等到有足够数量的变化发生, 或者等到一定时间, 或者等一个线程结束, 再一起处理。这样就只会发生一次重排。但如果渲染树直接发生变化, 当获取一些属性时, 浏览器为了取得正确的值也会触发重排。这样就使得浏览器的优化失效。这些属性包括: offsetTop、offsetLeft、 offsetWidth、offsetHeight、scrollTop、scrollLeft、scrollWidth、scrollHeight、clientTop、clientLeft、clientWidth、clientHeight、getComputedStyle() (currentStyle in IE)。所以，在多次使用这些值时应进行缓存。</p>
+</li>
+<li><ol start="4">
+<li>其他: 比如改变元素的某些样式, 调整浏览器窗口等等也会触发重排。</li>
+</ol>
+</li>
+</ul>
+<h3 id="最小化重绘和重排"><a href="#最小化重绘和重排" class="headerlink" title="最小化重绘和重排"></a>最小化重绘和重排</h3><ol>
+<li><p>样式集中改变，例如添加类名</p>
+</li>
+<li><p>避免在document上直接进行频繁的DOM操作</p>
+</li>
+<li><p>缓存layout属性值</p>
+</li>
+<li><p>使用绝对位置定位页面上需要改变的节点，脱离文档流后对其应用多重改变，把元素带回文档中。</p>
+</li>
+</ol>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><pre><code>重排和重绘是DOM编程中耗能的主要原因之一，平时涉及DOM编程时可以参考以下几点：
+
+尽量不要在布局信息改变时做查询（会导致渲染队列强制刷新）
+同一个DOM的多个属性改变可以写在一起（减少DOM访问，同时把强制渲染队列刷新的风险降为0）
+如果要批量添加DOM，可以先让元素脱离文档流，操作完后再带入文档流，这样只会触发一次重排（fragment元素的应用）
+将需要多次重排的元素，position属性设为absolute或fixed，这样此元素就脱离了文档流，它的变化不会影响到其他元素。例如有动画效果的元素就最好设置为绝对定位。
+</code></pre><blockquote>
+<p>   文本转载  来源：CSDN 原文：<a href="https://blog.csdn.net/i13738612458/article/details/80373702" target="_blank" rel="noopener">https://blog.csdn.net/i13738612458/article/details/80373702</a> </p>
+</blockquote>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/home/2018/12/21/关于js 脚本缓存的问题/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ztong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/home/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ztong的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/home/2018/12/21/关于js 脚本缓存的问题/" itemprop="url">关于js 脚本缓存的问题</a></h1>
         
 
         <div class="post-meta">
@@ -391,12 +561,12 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/13/js的一些常见特效/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/home/2018/12/13/js的一些常见特效/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ztong">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/home/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
@@ -410,7 +580,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/12/13/js的一些常见特效/" itemprop="url">js的一些常见特效</a></h1>
+                <a class="post-title-link" href="/home/2018/12/13/js的一些常见特效/" itemprop="url">js的一些常见特效</a></h1>
         
 
         <div class="post-meta">
@@ -569,12 +739,12 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/04/CSS 的一些小技巧/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/home/2018/12/04/CSS 的一些小技巧/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ztong">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/home/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
@@ -588,7 +758,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/12/04/CSS 的一些小技巧/" itemprop="url">CSS 的一些小技巧</a></h1>
+                <a class="post-title-link" href="/home/2018/12/04/CSS 的一些小技巧/" itemprop="url">CSS 的一些小技巧</a></h1>
         
 
         <div class="post-meta">
@@ -688,12 +858,12 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/04/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/home/2018/12/04/hello-world/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ztong">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/home/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
@@ -707,7 +877,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/12/04/hello-world/" itemprop="url">Hello World</a></h1>
+                <a class="post-title-link" href="/home/2018/12/04/hello-world/" itemprop="url">Hello World</a></h1>
         
 
         <div class="post-meta">
@@ -847,9 +1017,9 @@
             
               <div class="site-state-item site-state-posts">
               
-                <a href="/archives/">
+                <a href="/home/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -967,53 +1137,53 @@
 
   
   
-    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+    <script type="text/javascript" src="/home/lib/jquery/index.js?v=2.1.3"></script>
   
 
   
   
-    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+    <script type="text/javascript" src="/home/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
   
 
   
   
-    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+    <script type="text/javascript" src="/home/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
   
 
   
   
-    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+    <script type="text/javascript" src="/home/lib/velocity/velocity.min.js?v=1.2.1"></script>
   
 
   
   
-    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+    <script type="text/javascript" src="/home/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
   
 
   
   
-    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+    <script type="text/javascript" src="/home/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
   
 
 
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/home/js/src/utils.js?v=5.1.4"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/home/js/src/motion.js?v=5.1.4"></script>
 
 
 
   
-  
-
   
 
   
 
+  
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/home/js/src/bootstrap.js?v=5.1.4"></script>
 
 
 
