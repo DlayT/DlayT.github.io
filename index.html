@@ -331,8 +331,9 @@ CSS 网格布局(Grid Layout) 是CSS中最强大的布局系统。 这是一个�
 
 在生产环境中使用Grid只是时间问题，但现在是我们该学习的时候了。
 </code></pre><h3 id="重要术语"><a href="#重要术语" class="headerlink" title="重要术语"></a>重要术语</h3><pre><code>在深入了解网格的概念之前，理解术语是很重要的。 由于这里所涉及的术语在概念上都是相似的，如果不先记住它们在网格规范中定义的含义，则很容易将它们彼此混淆。 但是不用太担心，这些术语并不多。
-</code></pre><p>####Grid Container<br>    设置了 display: gird 的元素。 这是所有grid item的直接父项。 在下面的例子中，.container就是是 grid container。</p>
-<pre><code>`&lt;div class=&quot;container&quot;&gt;
+</code></pre><h4 id="Grid-Container"><a href="#Grid-Container" class="headerlink" title="Grid Container"></a>Grid Container</h4><pre><code>设置了 display: gird 的元素。 这是所有grid item的直接父项。 在下面的例子中，.container就是是 grid container。
+
+`&lt;div class=&quot;container&quot;&gt;
 &lt;div class=&quot;item item-1&quot;&gt;&lt;/div&gt;
 &lt;div class=&quot;item item-2&quot;&gt;&lt;/div&gt;
 &lt;div class=&quot;item item-3&quot;&gt;&lt;/div&gt;
@@ -350,8 +351,9 @@ CSS 网格布局(Grid Layout) 是CSS中最强大的布局系统。 这是一个�
 </code></pre><h4 id="Grid-Track"><a href="#Grid-Track" class="headerlink" title="Grid Track"></a>Grid Track</h4><pre><code>两个相邻网格线之间的空间。 你可以把它们想象成网格的列或行。 下面是第二行和第三行网格线之间的网格轨道。
 </code></pre><h4 id="Grid-Cell"><a href="#Grid-Cell" class="headerlink" title="Grid Cell"></a>Grid Cell</h4><pre><code>两个相邻的行和两个相邻的列网格线之间的空间。它是网格的一个“单元”。 下面是行网格线1和2之间以及列网格线2和3的网格单元。
 </code></pre><h4 id="Grid-Area"><a href="#Grid-Area" class="headerlink" title="Grid Area"></a>Grid Area</h4><pre><code>四个网格线包围的总空间。 网格区域可以由任意数量的网格单元组成。 下面是行网格线1和3以及列网格线1和3之间的网格区域。
-</code></pre><p>####Grid 属性列表<br>    Grid Container 的全部属性</p>
-<pre><code>`display
+</code></pre><h4 id="Grid-属性列表"><a href="#Grid-属性列表" class="headerlink" title="Grid 属性列表"></a>Grid 属性列表</h4><pre><code>Grid Container 的全部属性
+
+`display
 grid-template-columns
 grid-template-rows
 grid-template-areas
@@ -386,10 +388,13 @@ align-self`
     .container {
     display: grid | inline-grid | subgrid;
     }</code><br>注意：column, float, clear, 以及 vertical-align 对一个 grid container 没有影响</p>
-<h5 id="grid-template-columns-grid-template-rows"><a href="#grid-template-columns-grid-template-rows" class="headerlink" title="grid-template-columns / grid-template-rows"></a>grid-template-columns / grid-template-rows</h5><p>使用以空格分隔的多个值来定义网格的列和行。这些值表示轨道大小(track size)，它们之间的空格代表表格线(grid line)。<br>    <code>.container {
-    grid-template-columns: &lt;track-size&gt; ... | &lt;line-name&gt; &lt;track-size&gt; ...;
-    grid-template-rows: &lt;track-size&gt; ... | &lt;line-name&gt; &lt;track-size&gt; ...;
-    }</code><br>例子:</p>
+<h5 id="grid-template-columns-grid-template-rows"><a href="#grid-template-columns-grid-template-rows" class="headerlink" title="grid-template-columns / grid-template-rows"></a>grid-template-columns / grid-template-rows</h5><p>使用以空格分隔的多个值来定义网格的列和行。这些值表示轨道大小(track size)，它们之间的空格代表表格线(grid line)。</p>
+<pre><code>` .container {
+grid-template-columns: &lt;track-size&gt; ... | &lt;line-name&gt; &lt;track-size&gt; ...;
+grid-template-rows: &lt;track-size&gt; ... | &lt;line-name&gt; &lt;track-size&gt; ...;
+}
+`
+</code></pre><p>例子:</p>
 <pre><code>(如果未显示的给网格线命名)，轨道值之间仅仅有空格时，网格线会被自动分配数字名称：
 `.container {
 grid-template-columns: 40px 50px auto 50px 40px;
@@ -455,8 +460,7 @@ grid-template-areas:
     &quot;main main . sidebar&quot;
     &quot;footer footer footer footer&quot;;
 }`
-</code></pre><p>这将创建一个四列宽三行高的网格。 整个第一行将由 header 区域组成。 中间一行将由两个 main 区域、一个空单元格和一个 sidebar 区域组成。 最后一行是footer区域组成。</p>
-<p>你的声明中的每一行都需要有相同数量的单元格。</p>
+</code></pre><p>这将创建一个四列宽三行高的网格。 整个第一行将由 header 区域组成。 中间一行将由两个 main 区域、一个空单元格和一个 sidebar 区域组成。 最后一行是footer区域组成。<br>你的声明中的每一行都需要有相同数量的单元格。</p>
 <p>您可以使用任意数量的相邻的.来声明单个空单元格。 只要这些点号之间没有空格，他们就代表了一个单一的单元格。</p>
 <p>需要注意的是你不是在用这个语法命名网格线，而是在命名区域。 当你使用这种语法时，区域两端的网格线实际上是自动命名的。 比如，如果网格区域的名称是foo，那么区域的起始的行网格线和列网格线名称是 foo-start，并且区域终点的行网格线和列网格线名称是 foo-end。 这意味着某些网格线可能有多个名称，比如上面的例子中最左边的一条网格线有三个名字：header-start，main-start 和 footer-start。</p>
 <h5 id="grid-template"><a href="#grid-template" class="headerlink" title="grid-template"></a>grid-template</h5><p>在单个声明中定义 grid-template-rows、grid-template-columns、grid-template-areas 的简写。</p>
@@ -629,33 +633,21 @@ align-content: start | end | center | stretch | space-around | space-between | s
 .container {
 align-content: start; 
 }
-
-
 .container {
 align-content: end; 
 }
-
-
 .container {
 align-content: center;  
 }
-
-
 .container {
 align-content: stretch; 
 }
-
-
 .container {
 align-content: space-around;  
 }
-
-
 .container {
 align-content: space-between; 
 }
-
-
 .container {
 align-content: space-evenly;  
 }
@@ -674,14 +666,16 @@ grid-template-columns: 60px 60px;
 grid-template-rows: 90px 90px
 }`
 </code></pre><p>这里创建了一个 2x2的网格。</p>
-<p>但是，现在想象一下，使用 grid-column 和 grid-row 来定位你的网格项目，如下所示：<br>    <code>.item-a {
-    grid-column: 1 / 2;
-    grid-row: 2 / 3;
-    }
-    .item-b {
-    grid-column: 5 / 6;
-    grid-row: 2 / 3;
-    }</code></p>
+<p>但是，现在想象一下，使用 grid-column 和 grid-row 来定位你的网格项目，如下所示：</p>
+<pre><code>`.item-a {
+grid-column: 1 / 2;
+grid-row: 2 / 3;
+}
+.item-b {
+grid-column: 5 / 6;
+grid-row: 2 / 3;
+}
+</code></pre><p>`</p>
 <p>这里我们指定 .item-b开始于列网格线 5 并结束于在列网格线 6，但我们并未定义列网格线 5 或 6。因为我们引用不存在的网格线，宽度为0的隐式轨道的就会被创建用与填补间隙。我们可以使用 grid-auto-columns 和 grid-auto-rows属性来指定这些隐式轨道的宽度：</p>
 <pre><code>`.container {
 grid-auto-columns: 60px;
@@ -767,11 +761,12 @@ grid-auto-rows: 1fr;
 grid-auto-columns: auto;
 }`
 </code></pre><p>它也可用使用一个更复杂但相当方便的语法来一次设置所有内容。 你可以指定 grid-template-areas、grid-template-rows 以及 grid-template-columns，并将所有其他子属性设置为其初始值。 你现在所做的是在其网格区域内，指定网格线名称和内联轨道大小。 可以看下面的例子：</p>
-<p><code>.container {
-    grid: [row1-start] &quot;header header header&quot; 1fr [row1-end]
-            [row2-start] &quot;footer footer footer&quot; 25px [row2-end]
-            / auto 50px auto;
-    }</code><br>上述代码等价于</p>
+<pre><code>`.container {
+grid: [row1-start] &quot;header header header&quot; 1fr [row1-end]
+        [row2-start] &quot;footer footer footer&quot; 25px [row2-end]
+        / auto 50px auto;
+}`
+</code></pre><p>上述代码等价于</p>
 <pre><code>`.container {
 grid-template-areas: 
     &quot;header header header&quot;
