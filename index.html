@@ -232,6 +232,344 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/home/2019/01/04/使input 文本框不可编辑的方式/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ztong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/home/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ztong的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/home/2019/01/04/使input 文本框不可编辑的方式/" itemprop="url">使input 文本框不可编辑</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-04T10:22:21+08:00">
+                2019-01-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>今天遇到了这个问题，就来写一下 关于禁用文本框的方法</p>
+<ol>
+<li><p>input 元素的disabled 属性，被禁用的input 元素不可编辑，不可复制，不可选择，不能接受焦点，后台也不会接受到值，文本的样式也会变成灰色，注意： disabled 属性不能与 input元素type为hidden 一起使用</p>
+</li>
+<li><p>readonly 属性设置文本框为只读的状态，该文本可以被选择，可以被复制，可以接受焦点，readonly 属性就是防止用户自行修改信息</p>
+</li>
+<li><p>readonly unselectable=”on”该属性和disable 类似，添加该属性后input元素，不可编辑，不可复制，不可选择，不能接受焦点，设置后文本的颜色变为灰色，但是后台可以接收到传值</p>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/home/2019/01/02/vue.js 中 父子组件之间的通信方式/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ztong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/home/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ztong的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/home/2019/01/02/vue.js 中 父子组件之间的通信方式/" itemprop="url">vue.js 中父子组件之间的通信方式</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-02T10:22:49+08:00">
+                2019-01-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>vue 中 父子组件之间的通信方式有哪些？</p>
+</blockquote>
+<h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>一般是一下几种方式：</p>
+<ul>
+<li>Prop (常用)</li>
+<li>$emit    (组件封装用得较多)</li>
+<li>.sync   (较少，在VUE 2.0被移除了 但是2.3.0+重新引入这个修饰符  语法糖)</li>
+<li>$attrs 和 $listeners   (组件封装用的较多)</li>
+<li>provide 和 inject  (高阶组件/组件库用得比较多)</li>
+</ul>
+<h4 id="1-Prop"><a href="#1-Prop" class="headerlink" title="1.Prop"></a>1.Prop</h4><p>我们可以通过Prop 向子组件传递数据 注意 该方法只能从父组件传递参数到子组件 不可逆， 这也是VUE 的设计理念之单向数据流</p>
+<pre><code> &lt;div id=&quot;app&quot;&gt;
+ &lt;child :content=&quot;message&quot;&gt;&lt;/child&gt;
+ &lt;/div&gt;`
+// Js
+ let Child = Vue.extend({
+ template: &apos;&lt;h2&gt;{{ content }}&lt;/h2&gt;&apos;,
+ props: {
+     content: {
+     type: String,
+     default: () =&gt; { return &apos;from child&apos; }
+     }
+ }
+ })
+ new Vue({
+ el: &apos;#app&apos;,
+ data: {
+     message: &apos;from parent&apos;
+ },
+ components: {
+     Child
+  }
+ })
+</code></pre><h4 id="2-emit"><a href="#2-emit" class="headerlink" title="2.$emit"></a>2.$emit</h4><p>官方说法是当前实例上的事件，附件参数都会传递给监听器回调，换句话说就是当我们从子组件emit(派发)一个事件之前，都是内部提前在时间队列中on(监听)了这个事件以及监听回调</p>
+<pre><code>&lt;div id=&quot;app&quot;&gt;
+&lt;my-button @greet=&quot;sayHi&quot;&gt;&lt;/my-button&gt;
+&lt;/div&gt;
+
+let MyButton = Vue.extend({
+template: &apos;&lt;button @click=&quot;triggerClick&quot;&gt;click&lt;/button&gt;&apos;,
+data () {
+    return {
+    greeting: &apos;vue.js!&apos;
+    }
+},
+methods: {
+    triggerClick () {
+    this.$emit(&apos;greet&apos;, this.greeting)
+    }
+}
+})
+new Vue({
+el: &apos;#app&apos;,
+components: {
+    MyButton
+},
+methods: {
+    sayHi (val) {
+    alert(&apos;Hi, &apos; + val) // &apos;Hi, vue.js!&apos;
+    }
+}
+})
+</code></pre><h4 id="attr-和-listeners"><a href="#attr-和-listeners" class="headerlink" title="$attr 和 $listeners"></a>$attr 和 $listeners</h4><ul>
+<li>官网对$attr 的解释是：</li>
+</ul>
+<blockquote>
+<p>包含了父作用域中不作为porp被识别的特性（class 和 style 除外），当一个组件没有申明任何prop时，这里会包含所有父作用域的绑定（class 和 style 除外） 并且可以通过 v-bind=”$attrs”  传入内部组件— 在创建高级别的组件时 很实用</p>
+</blockquote>
+<ul>
+<li>官网对 $listeners 的解释是：</li>
+</ul>
+<blockquote>
+<p>包含了父作用域中的（不含 .native 的修饰器的） v-on  事件监听器。 可以通过 v-on=”$listeners” 传入内部组件 — 高级别组件很实用</p>
+</blockquote>
+<p>理解： $attr  相当于一个收纳属性的容器  $listeners  相当于一个收纳事件的容器 都是以对象的形式来保存数据</p>
+<pre><code>&lt;div id=&quot;app&quot;&gt;
+&lt;child
+    :foo=&quot;foo&quot;
+    :bar=&quot;bar&quot;
+    @one.native=&quot;triggerOne&quot;
+    @two=&quot;triggerTwo&quot;&gt;
+&lt;/child&gt;
+&lt;/div&gt;
+</code></pre><p>以上代码有两个属性，两个方法，区别是一个是prop 声明，事件是 .native 修饰器。</p>
+<pre><code>let Child = Vue.extend({
+</code></pre><p>  template: ‘</p><h2></h2>‘,<br>  props: [‘foo’],<br>  created () {<br>    console.log(this.$attrs, this.$listeners)<br>    // -&gt; {bar: “parent bar”}<br>    // -&gt; {two: fn}<br>    // 这里我们访问父组件中的 <code>triggerTwo</code> 方法<br>    this.$listeners.two()<br>    // -&gt; ‘two’<br>    }<br>    })<br>    new Vue({<br>    el: ‘#app’,<br>    data: {<br>        foo: ‘parent foo’,<br>        bar: ‘parent bar’<br>    },<br>    components: {<br>        Child<br>    },<br>    methods: {<br>        triggerOne () {<br>        alert(‘one’)<br>        },<br>        triggerTwo () {<br>        alert(‘two’)<br>        }<br>    }<br>    })<p></p>
+<p>我们可以通过 $attrs 和 $listeners 进行数据传递，在需要的地方进行调用和处理</p>
+<blockquote>
+<p>本文引用自 <a href="https://www.jqhtml.com/18151.html" target="_blank" rel="noopener">https://www.jqhtml.com/18151.html</a></p>
+</blockquote>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/home/2018/12/29/CSS Grid 系列(上)-Grid布局完整指南/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1470,7 +1808,7 @@ align-self: stretch;
               
                 <a href="/home/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1511,7 +1849,7 @@ align-self: stretch;
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

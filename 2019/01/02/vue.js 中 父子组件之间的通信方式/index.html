@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="关于禁止js文件缓存问题对于js 文件被缓存的问题,会导致修改文件上传后,用户的浏览器使用的还是本地缓存的js 代码,导致用户体验到的不一致, 需要强制刷新之后, 重新取服务器获取最新的js代码, 但是不能让用户每次都取这样操作. 一般的解决方案:  加版本号   &amp;lt;script type=&amp;quot;text/javascript&amp;quot; src=&amp;quot;/js/demo.js?v">
+<meta name="description" content="vue 中 父子组件之间的通信方式有哪些？  概述一般是一下几种方式：  Prop (常用) $emit    (组件封装用得较多) .sync   (较少，在VUE 2.0被移除了 但是2.3.0+重新引入这个修饰符  语法糖) $attrs 和 $listeners   (组件封装用的较多) provide 和 inject  (高阶组件/组件库用得比较多)  1.Prop我们可以通过Pro">
 <meta property="og:type" content="article">
-<meta property="og:title" content="关于js 脚本缓存的问题">
-<meta property="og:url" content="http://yoursite.com/2018/12/21/关于js 脚本缓存的问题/index.html">
+<meta property="og:title" content="vue.js 中父子组件之间的通信方式">
+<meta property="og:url" content="http://yoursite.com/2019/01/02/vue.js 中 父子组件之间的通信方式/index.html">
 <meta property="og:site_name" content="ztong的博客">
-<meta property="og:description" content="关于禁止js文件缓存问题对于js 文件被缓存的问题,会导致修改文件上传后,用户的浏览器使用的还是本地缓存的js 代码,导致用户体验到的不一致, 需要强制刷新之后, 重新取服务器获取最新的js代码, 但是不能让用户每次都取这样操作. 一般的解决方案:  加版本号   &amp;lt;script type=&amp;quot;text/javascript&amp;quot; src=&amp;quot;/js/demo.js?v">
+<meta property="og:description" content="vue 中 父子组件之间的通信方式有哪些？  概述一般是一下几种方式：  Prop (常用) $emit    (组件封装用得较多) .sync   (较少，在VUE 2.0被移除了 但是2.3.0+重新引入这个修饰符  语法糖) $attrs 和 $listeners   (组件封装用的较多) provide 和 inject  (高阶组件/组件库用得比较多)  1.Prop我们可以通过Pro">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-29T09:38:24.220Z">
+<meta property="og:updated_time" content="2019-01-04T06:25:57.442Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="关于js 脚本缓存的问题">
-<meta name="twitter:description" content="关于禁止js文件缓存问题对于js 文件被缓存的问题,会导致修改文件上传后,用户的浏览器使用的还是本地缓存的js 代码,导致用户体验到的不一致, 需要强制刷新之后, 重新取服务器获取最新的js代码, 但是不能让用户每次都取这样操作. 一般的解决方案:  加版本号   &amp;lt;script type=&amp;quot;text/javascript&amp;quot; src=&amp;quot;/js/demo.js?v">
+<meta name="twitter:title" content="vue.js 中父子组件之间的通信方式">
+<meta name="twitter:description" content="vue 中 父子组件之间的通信方式有哪些？  概述一般是一下几种方式：  Prop (常用) $emit    (组件封装用得较多) .sync   (较少，在VUE 2.0被移除了 但是2.3.0+重新引入这个修饰符  语法糖) $attrs 和 $listeners   (组件封装用的较多) provide 和 inject  (高阶组件/组件库用得比较多)  1.Prop我们可以通过Pro">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/12/21/关于js 脚本缓存的问题/">
+  <link rel="canonical" href="http://yoursite.com/2019/01/02/vue.js 中 父子组件之间的通信方式/">
 
 
 
 
 
-  <title>关于js 脚本缓存的问题 | ztong的博客</title>
+  <title>vue.js 中父子组件之间的通信方式 | ztong的博客</title>
   
 
 
@@ -232,7 +232,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/home/2018/12/21/关于js 脚本缓存的问题/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/home/2019/01/02/vue.js 中 父子组件之间的通信方式/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ztong">
@@ -249,7 +249,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">关于js 脚本缓存的问题</h1>
+          <h1 class="post-title" itemprop="name headline">vue.js 中父子组件之间的通信方式</h1>
         
 
         <div class="post-meta">
@@ -261,8 +261,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-21T09:54:42+08:00">
-                2018-12-21
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-02T10:22:49+08:00">
+                2019-01-02
               </time>
             
 
@@ -299,43 +299,98 @@
       
 
       
-        <h3 id="关于禁止js文件缓存问题"><a href="#关于禁止js文件缓存问题" class="headerlink" title="关于禁止js文件缓存问题"></a>关于禁止js文件缓存问题</h3><pre><code>对于js 文件被缓存的问题,会导致修改文件上传后,用户的浏览器使用的还是本地缓存的js 代码,导致用户体验到的不一致, 需要强制刷新之后, 重新取服务器获取最新的js代码, 但是不能让用户每次都取这样操作.
-</code></pre><p>一般的解决方案:</p>
+        <blockquote>
+<p>vue 中 父子组件之间的通信方式有哪些？</p>
+</blockquote>
+<h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>一般是一下几种方式：</p>
 <ul>
-<li><p>加版本号 </p>
-<p> <code>&lt;script type=&quot;text/javascript&quot; src=&quot;/js/demo.js?v=1.0.0&quot; &gt;&lt;/script&gt;</code></p>
-</li>
+<li>Prop (常用)</li>
+<li>$emit    (组件封装用得较多)</li>
+<li>.sync   (较少，在VUE 2.0被移除了 但是2.3.0+重新引入这个修饰符  语法糖)</li>
+<li>$attrs 和 $listeners   (组件封装用的较多)</li>
+<li>provide 和 inject  (高阶组件/组件库用得比较多)</li>
 </ul>
-<pre><code>添加版本号的方案:这个方案是属于业界比较成熟的方案 但是有个缺点,这个版本号怎么做版本, 不可能修改一次就更新一次版本号, 故而版本号管理是个问题 
-</code></pre><ul>
-<li>加发布时间<br>  <code>&lt;script type=&quot;text/javascript&quot; src=&quot;/js/demo.js?t=20180428&quot; &gt;&lt;/script&gt;</code></li>
+<h4 id="1-Prop"><a href="#1-Prop" class="headerlink" title="1.Prop"></a>1.Prop</h4><p>我们可以通过Prop 向子组件传递数据 注意 该方法只能从父组件传递参数到子组件 不可逆， 这也是VUE 的设计理念之单向数据流</p>
+<pre><code> &lt;div id=&quot;app&quot;&gt;
+ &lt;child :content=&quot;message&quot;&gt;&lt;/child&gt;
+ &lt;/div&gt;`
+// Js
+ let Child = Vue.extend({
+ template: &apos;&lt;h2&gt;{{ content }}&lt;/h2&gt;&apos;,
+ props: {
+     content: {
+     type: String,
+     default: () =&gt; { return &apos;from child&apos; }
+     }
+ }
+ })
+ new Vue({
+ el: &apos;#app&apos;,
+ data: {
+     message: &apos;from parent&apos;
+ },
+ components: {
+     Child
+  }
+ })
+</code></pre><h4 id="2-emit"><a href="#2-emit" class="headerlink" title="2.$emit"></a>2.$emit</h4><p>官方说法是当前实例上的事件，附件参数都会传递给监听器回调，换句话说就是当我们从子组件emit(派发)一个事件之前，都是内部提前在时间队列中on(监听)了这个事件以及监听回调</p>
+<pre><code>&lt;div id=&quot;app&quot;&gt;
+&lt;my-button @greet=&quot;sayHi&quot;&gt;&lt;/my-button&gt;
+&lt;/div&gt;
+
+let MyButton = Vue.extend({
+template: &apos;&lt;button @click=&quot;triggerClick&quot;&gt;click&lt;/button&gt;&apos;,
+data () {
+    return {
+    greeting: &apos;vue.js!&apos;
+    }
+},
+methods: {
+    triggerClick () {
+    this.$emit(&apos;greet&apos;, this.greeting)
+    }
+}
+})
+new Vue({
+el: &apos;#app&apos;,
+components: {
+    MyButton
+},
+methods: {
+    sayHi (val) {
+    alert(&apos;Hi, &apos; + val) // &apos;Hi, vue.js!&apos;
+    }
+}
+})
+</code></pre><h4 id="attr-和-listeners"><a href="#attr-和-listeners" class="headerlink" title="$attr 和 $listeners"></a>$attr 和 $listeners</h4><ul>
+<li>官网对$attr 的解释是：</li>
 </ul>
-<pre><code>这个方案是可行的  不需要系统的时间,而且不需要每个js文件都添加参数  每次修改后 去手动修改参数  但钱的时间
-</code></pre><ul>
-<li>开发过程中添加时间戳或者添加随机数<br> <code>&lt;script type=&quot;text/javascript&quot; src=&quot;/js/demo.js?t=&#39;date(&quot;Y-m-d&quot;)&#39;&quot; &gt;&lt;/script&gt; 使用日期，重新请求服务器。</code><br>  <code>&lt;script type=&quot;text/javascript&quot; src=&quot;/js/demo.js?t=&#39;time()&#39;&quot; &gt;&lt;/script&gt; 使用时间戳</code></li>
-</ul>
-<pre><code>添加时间戳的方案  可以解决缓存问题, 不过缺点也是很明显, 因为引入时间戳后会导致浏览器每次都会去服务端请求js文件资源,  这样会很消耗资源
-</code></pre><p>添加的方法:</p>
+<blockquote>
+<p>包含了父作用域中不作为porp被识别的特性（class 和 style 除外），当一个组件没有申明任何prop时，这里会包含所有父作用域的绑定（class 和 style 除外） 并且可以通过 v-bind=”$attrs”  传入内部组件— 在创建高级别的组件时 很实用</p>
+</blockquote>
 <ul>
-<li><p>直接写入页面<br>  <code>document.write( &quot; &lt;script src=&#39;demo.js?rnd= &quot; + Math.random() + &quot; &#39;&gt;&lt;/s &quot; + &quot; cript&gt; &quot; )</code></p>
-</li>
-<li><p>动态追加脚本标签 然后填入地址</p>
-<p>  <code>var  js = document.createElement( &quot; script &quot; )</code>+<br>  <code>js.src = &quot; test.js &quot; + Math.random()</code>+<br>  <code>document.body.appendChild(js)</code></p>
-</li>
-<li><p>手动修改后面的参数<br>  <code>&lt;script src=&#39;demo.js?t=20180428&#39;&gt;&lt;/script&gt;</code></p>
-</li>
+<li>官网对 $listeners 的解释是：</li>
 </ul>
-<pre><code>后来又找到一个方法,那就是用自动化构建工具  比如gulp, 每次修改提交后都构建一次, 修改了文件名,  这样每次构建提交之后 都会实时的更新被缓存的文件
+<blockquote>
+<p>包含了父作用域中的（不含 .native 的修饰器的） v-on  事件监听器。 可以通过 v-on=”$listeners” 传入内部组件 — 高级别组件很实用</p>
+</blockquote>
+<p>理解： $attr  相当于一个收纳属性的容器  $listeners  相当于一个收纳事件的容器 都是以对象的形式来保存数据</p>
+<pre><code>&lt;div id=&quot;app&quot;&gt;
+&lt;child
+    :foo=&quot;foo&quot;
+    :bar=&quot;bar&quot;
+    @one.native=&quot;triggerOne&quot;
+    @two=&quot;triggerTwo&quot;&gt;
+&lt;/child&gt;
+&lt;/div&gt;
+</code></pre><p>以上代码有两个属性，两个方法，区别是一个是prop 声明，事件是 .native 修饰器。</p>
+<pre><code>let Child = Vue.extend({
+</code></pre><p>  template: ‘</p><h2></h2>‘,<br>  props: [‘foo’],<br>  created () {<br>    console.log(this.$attrs, this.$listeners)<br>    // -&gt; {bar: “parent bar”}<br>    // -&gt; {two: fn}<br>    // 这里我们访问父组件中的 <code>triggerTwo</code> 方法<br>    this.$listeners.two()<br>    // -&gt; ‘two’<br>    }<br>    })<br>    new Vue({<br>    el: ‘#app’,<br>    data: {<br>        foo: ‘parent foo’,<br>        bar: ‘parent bar’<br>    },<br>    components: {<br>        Child<br>    },<br>    methods: {<br>        triggerOne () {<br>        alert(‘one’)<br>        },<br>        triggerTwo () {<br>        alert(‘two’)<br>        }<br>    }<br>    })<p></p>
+<p>我们可以通过 $attrs 和 $listeners 进行数据传递，在需要的地方进行调用和处理</p>
+<blockquote>
+<p>本文引用自 <a href="https://www.jqhtml.com/18151.html" target="_blank" rel="noopener">https://www.jqhtml.com/18151.html</a></p>
+</blockquote>
 
-`   
-    runSequence = require(&apos;run-sequence&apos;),  
-    rev = require(&apos;gulp-rev&apos;),   // 清楚缓存
-    revCollector = require(&apos;gulp-rev-collector&apos;);   // 替换指定文件
-`
-
-
-总结: 目前能想到的就是这样写方法  ,如果有更好的方法 再回来补充
-</code></pre>
       
     </div>
     
@@ -359,8 +414,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/home/2018/12/13/js的一些常见特效/" rel="next" title="js的一些常见特效">
-                <i class="fa fa-chevron-left"></i> js的一些常见特效
+              <a href="/home/2018/12/29/CSS Grid 系列(上)-Grid布局完整指南/" rel="next" title="CSS Grid 系列(上)-Grid布局完整指南">
+                <i class="fa fa-chevron-left"></i> CSS Grid 系列(上)-Grid布局完整指南
               </a>
             
           </div>
@@ -369,8 +424,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/home/2018/12/29/js浏览器的重绘和重排/" rel="prev" title="浏览器的重绘与 重排">
-                浏览器的重绘与 重排 <i class="fa fa-chevron-right"></i>
+              <a href="/home/2019/01/04/使input 文本框不可编辑的方式/" rel="prev" title="使input 文本框不可编辑">
+                使input 文本框不可编辑 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -485,7 +540,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#关于禁止js文件缓存问题"><span class="nav-number">1.</span> <span class="nav-text">关于禁止js文件缓存问题</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-Prop"><span class="nav-number">1.1.</span> <span class="nav-text">1.Prop</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-emit"><span class="nav-number">1.2.</span> <span class="nav-text">2.$emit</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#attr-和-listeners"><span class="nav-number">1.3.</span> <span class="nav-text">$attr 和 $listeners</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number"></span> <span class="nav-text"></span></a></li></div>
             
 
           </div>
